@@ -10,7 +10,8 @@
     "prepublish": "npm run build",
     "test": "cross-env NODE_ENV=test nyc mocha --no-timeouts --exit",
     "report": "nyc report --reporter=html",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "benchmark": "node benchmark/index.js"
   },
   "nyc": {
     "include": [
@@ -31,6 +32,7 @@
     "babel-plugin-istanbul": "^4.1.3",
     "babel-preset-env": "^1.1.4",
     "babel-register": "^6.18.0",
+    "benchmark": "^2.1.4",
     "chai": "^4.0.0",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.3",
