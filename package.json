@@ -1,6 +1,6 @@
 {
   "name": "uri-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility class for URI encoding based on RFC 3986.",
   "main": "lib/index.js",
   "scripts": {
