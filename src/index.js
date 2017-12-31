@@ -2,6 +2,11 @@ import * as Type from './type';
 
 const { TYPE, isAllow } = Type;
 
+const hexTable = new Array(128);
+for (let i = 0; i < 128; ++i) {
+  hexTable[i] = '%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase();
+}
+
 /**
  * Encode characters outside the unreserved character set as defined in
  * <a href="https://tools.ietf.org/html/rfc3986#section-2">RFC 3986 Section 2</a>.
@@ -19,12 +24,16 @@ function encode (source, type = TYPE.URI) {
     const s = source[i];
     const c = s.charCodeAt(0);
     // ASCII
-    if (c < 0x80 && isAllow(c, type)) {
+    if (c < 0x80) {
       if (tmp.length) {
         out += encodeURIComponent(tmp);
         tmp = '';
       }
-      out += s;
+      if (isAllow(c, type)) {
+        out += s;
+      } else {
+        out += hexTable[c];
+      }
     } else {
       tmp += s;
     }
