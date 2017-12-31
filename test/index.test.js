@@ -49,7 +49,7 @@ describe('Test uri-utils', () => {
   });
   it('should encode() encoded', () => {
     expect(utils.encode('')).to.be.equal('');
-    expect(utils.encode('中文')).to.be.equal('%E4%B8%AD%E6%96%87');
+    expect(utils.encode('中文😝')).to.be.equal('%E4%B8%AD%E6%96%87%F0%9F%98%9D');
     expect(utils.encode('2001:db8::ff00:42:8329', utils.TYPE.HOST_IPV6)).to.be.equal('2001:db8::ff00:42:8329');
     expect(utils.encode('::1', utils.TYPE.HOST_IPV6)).to.be.equal('::1');
     expect(utils.encode('0.0.0.0', utils.TYPE.HOST_IPV4)).to.be.equal('0.0.0.0');
