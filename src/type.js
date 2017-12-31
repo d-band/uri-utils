@@ -40,7 +40,7 @@ export function isDigit (c) {
  */
 export function isGenericDelimiter (c) {
   // :/?#[]@
-  return [58, 47, 63, 35, 91, 93, 64].includes(c);
+  return [58, 47, 63, 35, 91, 93, 64].indexOf(c) >= 0;
 }
 
 /**
@@ -49,7 +49,7 @@ export function isGenericDelimiter (c) {
  */
 export function isSubDelimiter (c) {
   // !$&'()*+,;=
-  return [33, 36, 38, 39, 40, 41, 42, 43, 44, 59, 61].includes(c);
+  return [33, 36, 38, 39, 40, 41, 42, 43, 44, 59, 61].indexOf(c) >= 0;
 }
 
 /**
@@ -66,7 +66,7 @@ export function isReserved (c) {
  */
 export function isUnreserved (c) {
   // -._~
-  return isAlpha(c) || isDigit(c) || [45, 46, 95, 126].includes(c);
+  return isAlpha(c) || isDigit(c) || [45, 46, 95, 126].indexOf(c) >= 0;
 }
 
 /**
@@ -81,7 +81,7 @@ export function isPchar (c) {
 export function isAllow (c, type) {
   switch (type) {
     case TYPE.SCHEME:
-      return isAlpha(c) || isDigit(c) || [43, 45, 46].includes(c);// +-.
+      return isAlpha(c) || isDigit(c) || [43, 45, 46].indexOf(c) >= 0;// +-.
     case TYPE.AUTHORITY:
       return isUnreserved(c) || isSubDelimiter(c) || c === 58 || c === 64;// :@
     case TYPE.USER_INFO:
@@ -89,7 +89,7 @@ export function isAllow (c, type) {
     case TYPE.HOST_IPV4:
       return isUnreserved(c) || isSubDelimiter(c);
     case TYPE.HOST_IPV6:
-      return isUnreserved(c) || isSubDelimiter(c) || [91, 93, 58].includes(c);// []:
+      return isUnreserved(c) || isSubDelimiter(c) || [91, 93, 58].indexOf(c) >= 0;// []:
     case TYPE.PORT:
       return isDigit(c);
     case TYPE.PATH:
