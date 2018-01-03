@@ -12,34 +12,31 @@ for (let i = 0; i < 128; ++i) {
  * <a href="https://tools.ietf.org/html/rfc3986#section-2">RFC 3986 Section 2</a>.
  * <p>This can be used to ensure the given String will not contain any
  * characters with reserved URI meaning regardless of URI component.
- * @param source the String to be encoded
+ * @param str the String to be encoded
  * @param type the type of encode (default TYPE.URI)
  * @return the encoded String
  */
-function encode (source, type = TYPE.URI) {
-  if (!source) return source;
+function encode (str, type = TYPE.URI) {
+  if (!str) return str;
   let out = '';
-  let tmp = '';
-  for (let i = 0; i < source.length; ++i) {
-    const s = source[i];
-    const c = s.charCodeAt(0);
+  let last = 0;
+  for (let i = 0; i < str.length; ++i) {
+    const c = str.charCodeAt(i);
     // ASCII
     if (c < 0x80) {
-      if (tmp.length) {
-        out += encodeURIComponent(tmp);
-        tmp = '';
+      if (last < i) {
+        out += encodeURIComponent(str.slice(last, i));
       }
       if (isAllow(c, type)) {
-        out += s;
+        out += str[i];
       } else {
         out += hexTable[c];
       }
-    } else {
-      tmp += s;
+      last = i + 1;
     }
   }
-  if (tmp.length) {
-    out += encodeURIComponent(tmp);
+  if (last < str.length) {
+    out += encodeURIComponent(str.slice(last));
   }
   return out;
 }
