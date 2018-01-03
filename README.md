@@ -8,7 +8,7 @@ URI Utilities
 [![Dependency Status](https://david-dm.org/d-band/uri-utils.svg)](https://david-dm.org/d-band/uri-utils)
 [![Greenkeeper badge](https://badges.greenkeeper.io/d-band/uri-utils.svg)](https://greenkeeper.io/)
 
-> Utility class for URI encoding based on RFC 3986.
+> Utility for URI encoding based on RFC 3986.
 
 ## Getting Started
 
@@ -84,6 +84,26 @@ import {
 - `encodeQuery(str: String)`: encode query 
 - `encodeQueryParam(str: String)`: encode query param
 - `encodeFragment(str: String)`: encode fragment
+
+
+## Benchmark
+
+```
+node version: v4.8.7
+uri-utils          x 150,915 ops/sec ±1.08% (89 runs sampled)
+encodeURIComponent x 112,777 ops/sec ±1.29% (73 runs sampled)
+Fastest is uri-utils
+
+node version: v6.12.3
+uri-utils          x 80,632 ops/sec ±0.55% (75 runs sampled)
+encodeURIComponent x 73,166 ops/sec ±1.32% (77 runs sampled)
+Fastest is uri-utils
+
+node version: v8.9.4
+uri-utils          x 155,020 ops/sec ±5.58% (75 runs sampled)
+encodeURIComponent x 612,347 ops/sec ±4.05% (83 runs sampled)
+Fastest is encodeURIComponent
+```
 
 ## Report a issue
 
