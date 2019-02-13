@@ -18,7 +18,7 @@
       "src/**/*.js"
     ],
     "require": [
-      "babel-register"
+      "@babel/register"
     ],
     "sourceMap": false,
     "instrument": false
@@ -27,25 +27,26 @@
     "lint"
   ],
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-eslint": "^8.0.0",
-    "babel-plugin-istanbul": "^4.1.3",
-    "babel-preset-env": "^1.1.4",
-    "babel-register": "^6.18.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-istanbul": "^5.1.0",
     "benchmark": "^2.1.4",
-    "chai": "^4.0.0",
-    "coveralls": "^3.0.0",
-    "cross-env": "^5.1.3",
-    "eslint": "^4.1.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-node": "^5.0.0",
-    "eslint-plugin-promise": "^3.3.1",
-    "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^4.0.0",
-    "nyc": "^11.0.0",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.2.0",
     "pre-commit": "^1.1.3",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.6.3"
   },
   "repository": {
     "type": "git",
