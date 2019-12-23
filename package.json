@@ -32,7 +32,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
     "benchmark": "^2.1.4",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
